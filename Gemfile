@@ -16,13 +16,17 @@ gem "haml-rails", "~> 2.1.0"
 
 gem "html2haml"
 
-# gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 gem 'jquery-ui-rails'
 
 gem 'rails-asset-jqueryui'
 
+gem 'kaminari'
+
 gem 'bootstrap-sass'
+
+gem 'font-awesome-sass'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -82,3 +86,15 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+  
+  # Лучше отображает ошибки
+  gem "better_errors"
+  gem "binding_of_caller"
+  end
+  
+  gem 'will_paginate'

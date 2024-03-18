@@ -7,5 +7,5 @@ import "controllers"
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-
+//= require flash
 //= require_tree .
