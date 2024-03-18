@@ -12,6 +12,18 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
+gem "haml-rails", "~> 2.1.0"
+
+gem "html2haml"
+
+# gem "font-awesome-rails"
+
+gem 'jquery-ui-rails'
+
+gem 'rails-asset-jqueryui'
+
+gem 'bootstrap-sass'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
