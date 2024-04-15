@@ -104,7 +104,6 @@ GEM
     erubis (2.7.0)
     execjs (2.9.1)
     ffi (1.16.3)
-    flash (0.0.3)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     font-awesome-sass (6.5.1)
@@ -310,7 +309,6 @@ DEPENDENCIES
   byebug
   capybara
   debug
-  flash
   font-awesome-rails
   font-awesome-sass
   haml-rails (~> 2.1.0)

@@ -18,6 +18,8 @@ gem "html2haml"
 
 gem 'font-awesome-rails'
 
+gem 'jquery-rails', "~> 4.6"
+
 gem 'jquery-ui-rails'
 
 gem 'rails-asset-jqueryui'
