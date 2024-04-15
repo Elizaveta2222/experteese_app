@@ -14,6 +14,8 @@ gem "sqlite3", "~> 1.4"
 
 gem "haml-rails", "~> 2.1.0"
 
+gem 'pg', '~> 1.5', '>= 1.5.6'
+
 gem "html2haml"
 
 gem 'font-awesome-rails'
@@ -21,6 +23,12 @@ gem 'font-awesome-rails'
 gem 'jquery-rails', "~> 4.6"
 
 gem 'jquery-ui-rails'
+
+gem 'activerecord-reset-pk-sequence'
+
+gem 'bcrypt'
+
+gem 'active_model_serializers'
 
 gem 'rails-asset-jqueryui'
 
