@@ -6,6 +6,12 @@
 %p
   %b Email:
   = @user.email
+%p
+  %b Password:
+  = @user.password
+%p
+  %b Password confirmation:
+  = @user.password_confirmation
 
 = link_to 'Edit', edit_user_path(@user)
 \|
