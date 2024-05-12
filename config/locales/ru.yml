@@ -1,0 +1,15 @@
+shared:
+  header:
+    logo_title: "Experteese на Ruby_on_Rails"
+    home: "Главная"
+    help: "Помощь"
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    person: "Я"
+    profile: "Моя страница"
+    settings: "Настройки"
+work:
+  index:
+    def_select_theme: "Драма"
+  display_theme:
+    select_theme: "Драма"
