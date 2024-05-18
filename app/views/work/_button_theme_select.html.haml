@@ -1,2 +1,6 @@
-%button.button__left.theme
-    = link_to 'Select theme', choose_theme_path, :title => "Select theme from your device folder", locale: @current_locale, :format => "js", remote: true
+%button.btn.button__left.theme
+  = link_to "Choose theme",
+    choose_theme_path,
+    title: "Select theme from your device folder",
+    format: "js",
+    remote: true
