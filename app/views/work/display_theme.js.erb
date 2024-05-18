@@ -50,3 +50,100 @@ var pathImage = "assets/pictures/" + oneImageFile;
 pathImage + '"/>');
 $(".img-center").attr({title: "Selected image" });
 $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image" });
+
+$('.img-right-side').click(function (event) {
+    event.stopImmediatePropagation();
+    $.ajax({
+        type: "get",
+        url: "api/next_image",
+        data: {
+            index: imageCurrentIndex,
+            theme_id: selectedThemeId,
+            length: themeImagesSize
+        },
+        dataType: 'json'
+    }).done(function (data_return) {
+        console.log("success:  " + data_return.notice);
+        imageCurrentIndex = data_return.new_image_index;
+        oneImageName = data_return.name;
+        oneImageFile = data_return.file;
+        oneImageId = data_return.image_id;
+        $('h2.up').append().html(oneImageName);
+        var pathImage = oneImageFile;
+        $(".img-center").attr({title: "Selected image"});
+        $(".img-center img").attr({
+            alt: "Selected Image", src:
+            pathImage, title: "Selected image"
+        });
+
+        var userValuedFlag = data_return.user_valued;
+        if(userValuedFlag  === 1){
+            $('span.common_value').css({"display": "block"});
+            var imageValue = data_return.value;
+            $('.user_value').css({"display": "block"});
+            $('.value').append().html(imageValue).css({"display": "block"});
+            $('.image_diag').css({"display": "none"});
+
+            var imageCommonValue = data_return.common_ave_value;
+            $('span.common_value h2.common').append().html(imageCommonValue);
+        }else{
+            $('span.common_value').css({"display": "none"});
+            $('.user_value').css({"display": "none"});
+            $('.value').css({"display": "none"});
+            $('.image_diag').css({"display": "block"});
+        }
+
+    })
+        .fail(function (data_return) {
+            console.log("error: data_return = " + data_return);
+        });
+});
+
+
+$('.img-left-side').click(function (event) {
+    event.stopImmediatePropagation();
+    $.ajax({
+        type: "get",
+        url: "api/prev_image",
+        data: {
+            index: imageCurrentIndex,
+            theme_id: selectedThemeId,
+            length: themeImagesSize
+        },
+        dataType: 'json'
+    }).done(function (data_return) {
+        console.log("success:  " + data_return.notice);
+        imageCurrentIndex = data_return.new_image_index;
+        oneImageName = data_return.name;
+        oneImageFile = data_return.file;
+        oneImageId = data_return.image_id;
+        $('h2.up').append().html(oneImageName);
+        var pathImage = oneImageFile;
+        $(".img-center").attr({title: "Selected image"});
+        $(".img-center img").attr({
+            alt: "Selected Image", src:
+            pathImage, title: "Selected image"
+        });
+
+        var userValuedFlag = data_return.user_valued;
+        if(userValuedFlag  === 1){
+            $('span.common_value').css({"display": "block"});
+            var imageValue = data_return.value;
+            $('.user_value').css({"display": "block"});
+            $('.value').append().html(imageValue).css({"display": "block"});
+            $('.image_diag').css({"display": "none"});
+
+            var imageCommonValue = data_return.common_ave_value;
+            $('span.common_value h2.common').append().html(imageCommonValue);
+        }else{
+            $('span.common_value').css({"display": "none"});
+            $('.user_value').css({"display": "none"});
+            $('.value').css({"display": "none"});
+            $('.image_diag').css({"display": "block"});
+        }
+
+    })
+      .fail(function (data_return) {
+          console.log("error: data_return = " + data_return);
+      });
+});
