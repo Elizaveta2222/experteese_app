@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApiController < ApplicationController
     include WorkImage
   
@@ -21,7 +19,7 @@ class ApiController < ApplicationController
             render json: {
               new_image_index: next_image_data[:index],
               name: next_image_data[:name],
-              file: helpers.image_path(next_image_data[:file]),
+              file: next_image_data[:file],
               image_id: next_image_data[:image_id],
               user_valued: next_image_data[:user_valued],
               common_ave_value: next_image_data[:common_ave_value],
@@ -55,7 +53,7 @@ class ApiController < ApplicationController
             render json: {
               new_image_index: next_image_data[:index],
               name: next_image_data[:name],
-              file: helpers.image_path(next_image_data[:file]),
+              file: next_image_data[:file],
               image_id: next_image_data[:image_id],
               user_valued: next_image_data[:user_valued],
               common_ave_value: next_image_data[:common_ave_value],
@@ -89,9 +87,6 @@ class ApiController < ApplicationController
       new_info = Image.update_values(new_score_info)
   
       respond_to do |format|
-        if user_score.blank?
-          format.html { render nothing: true, status: :unprocessable_entity }
-        else
           format.json { render json: {
             user_value: user_score,
             user_valued: new_info[:user_valued],
@@ -101,8 +96,6 @@ class ApiController < ApplicationController
             image_id: new_info[:image_id],
           }
           }
-        end
       end
-  
     end
   end

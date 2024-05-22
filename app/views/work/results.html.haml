@@ -1,0 +1,27 @@
+- if @composite_results.blank?
+  %table{style: "table-layout: auto", title: "No Values results"}
+    .results
+      %h2
+        = "Нет оценок"
+- else
+  .results.pb-4
+    %h2
+      = "Оценки пользователя"
+  %table.table.table-bordered{style: "table-layout: auto;"}
+    %caption
+    %tr{style: "font-size: 2em; margin-bottom: .5em"}
+      %th.name Фильмы
+      %th Изображение
+      %th Значение
+      %th Дата
+    - @composite_results.each do |composite_diag|
+      %tr.one_row
+        %td{style: "text-align: left; width: 25em"}
+          = composite_diag.name
+        %td
+          = image_tag('pictures/' + composite_diag.file, {:width=> "53", :height =>"47", title: |
+            "Оцененное изображение"} )                                                                   |
+        %td{style: "color: rgba(122, 13, 75, 1);"}
+          = composite_diag.user_value
+        %td
+          = composite_diag.mark_date.strftime('%d.%m.%y ')

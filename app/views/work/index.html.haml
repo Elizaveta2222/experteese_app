@@ -7,7 +7,7 @@
       .row.image
         .col-md-12
           .img-center{:title => "Default image"}
-            %img{:alt => "Default Image", :src => @default_image_name, :title => "Default image", :style => "width:100%; height:100%;" }
+            %img{:alt => "Default Image", :src => @default_image_name, :title => "Default image", :style => "width:50%; height:50%; margin-left:20%" }
           .image_user_value{:title => "Expert value"}
 
         .col-md-6
@@ -57,9 +57,16 @@
 
       #slider
         %input.slide#slide{:max => "100", :min => "5", :value => "50",
-                         :onchange => "updateValue(this.value)",
+                         :onchange => "updateSlider(this.value)",
                          :step => "5", :type => "range"}
       %br
 
       %button.btn.button_save{:title => "Save image diag results"}
         %a{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"} Save value
+
+:javascript
+  function updateSlider(amount)
+  {
+    var displayValue = document.getElementById("chosen_value");
+    displayValue.innerHTML = "Set value: " + amount;
+  }

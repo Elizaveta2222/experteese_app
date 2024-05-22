@@ -47,33 +47,17 @@ class WorkController < ApplicationController
     image_data(theme, data)
   end
 
-  def results_list
-    helpers = ActionController::Base.helpers
-    images = Image.all
-    image_stats = []
+  def results
+    @selected_theme_id = session[:selected_theme_id]
+    
+    current_user_id = current_user.id
+    res_composite_diag = Image.joins(:value)
+      .select("images.name as name, images.created_at, images.file, values.value as user_value, values.created_at as mark_date, images.ave_value")
+      .where("values.user_id = :user_id AND value <= images.ave_value + 25 AND value >= images.ave_value - 25", { user_id: current_user_id } )
+      .order("value DESC")
 
-    images.each do |image|
-      rated_by_user = Value.where(image_id: image.id, user_id: current_user.id).size != 0
-      if rated_by_user
-        user_value = Value.where(image_id: image.id, user_id: current_user.id)[0].value
-      image_stats.push({
-                         id: image.id,
-                         theme: Theme.where(id: image.theme_id)[0].name,
-                         imageAvgValue: Value.where(image_id: image.id).average(:value).to_f,
-                         userValue: user_value,
-                         name: image.name,
-                         file: helpers.image_path(image.file),
-                         created_at: image.created_at
-                       })
-      else
-      end
-    end
-
-    respond_to do |format|
-      format.html { render :results_list }
-      format.json { render json: image_stats }
-    end
-
+    composite_results_size = res_composite_diag.size
+    
+    @composite_results = res_composite_diag.take(composite_results_size)
   end
-
 end

@@ -58,7 +58,7 @@ if(userValuedFlag  === 1){
 $('h2.up').append().html(oneImageName);
 
 // show image
-var pathImage = "<%= helpers.image_path(@image_data[:file]) %>"
+var pathImage = "assets/pictures/" + oneImageFile;
 $('.img-center').html('<img alt="Selected Image" src="' + pathImage + '"/>');
 $(".img-center").attr({title: "Selected image"});
 $(".img-center img").attr({alt: "Selected Image", src: pathImage, title: "Selected image"});
@@ -81,7 +81,7 @@ $('.img-right-side').click(function (event) {
         oneImageFile = data_return.file;
         oneImageId = data_return.image_id;
         $('h2.up').append().html(oneImageName);
-        var pathImage = oneImageFile;
+        var pathImage = "assets/pictures/" + oneImageFile;
         $(".img-center").attr({title: "Selected image"});
         $(".img-center img").attr({
             alt: "Selected Image", src:
@@ -130,7 +130,7 @@ $('.img-left-side').click(function (event) {
         oneImageFile = data_return.file;
         oneImageId = data_return.image_id;
         $('h2.up').append().html(oneImageName);
-        var pathImage = oneImageFile;
+        var pathImage = "assets/pictures/" + oneImageFile;
         $(".img-center").attr({title: "Selected image"});
         $(".img-center img").attr({
             alt: "Selected Image", src:

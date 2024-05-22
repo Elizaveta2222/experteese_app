@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "font-awesome";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -16,3 +17,20 @@
 *= require font-awesome
 *= require_tree .
  */
+
+body {
+    padding: 0 5%;
+}
+footer {
+    position: fixed;
+    margin: 0 auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+img {
+    width: 50%;
+    height:50%;
+    margin-left:20%
+}

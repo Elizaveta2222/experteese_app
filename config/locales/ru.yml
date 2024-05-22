@@ -5,6 +5,7 @@ shared:
     help: "Помощь"
     sign_in: "Войти"
     sign_out: "Выйти"
+    sign_up: "Зарегистрироваться"
     person: "Я"
     profile: "Моя страница"
     settings: "Настройки"
@@ -13,3 +14,11 @@ work:
     def_select_theme: "Драма"
   display_theme:
     select_theme: "Драма"
+sessions:
+  new:
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    sign_up: "Зарегистрироваться"
+users:
+  form:
+    create_account: "Создать аккаунт"
